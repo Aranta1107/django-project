@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Log In </h2>
+{% if messages %}
+    <div class="alert alert-danger">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ fm.as_p }}
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+<p>Not registered? <a href=  "{% url "register_teacher" %}"><button type="submit" class="btn btn-primary">Registerhere</button></a><p>
+{% endblock content %}
